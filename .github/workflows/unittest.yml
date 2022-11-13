@@ -23,8 +23,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+          cache-dependency-path: test/package-lock.json
 
-      - name: Set up Go
+      - name: Set up Go ${{ matrix.go-version }}
         uses: actions/setup-go@v2
         with:
           go-version: ${{ matrix.go-version }}

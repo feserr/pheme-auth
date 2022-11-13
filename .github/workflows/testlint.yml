@@ -1,4 +1,4 @@
-name: 📊 Lint
+name: 👀 Test lint
 
 on:
   push:
@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+          cache-dependency-path: test/package-lock.json
 
       - name: Run tests
         run: |
