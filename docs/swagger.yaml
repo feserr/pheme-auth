@@ -1,0 +1,128 @@
+basePath: /api/
+definitions:
+  models.Message:
+    description: message JSON
+    properties:
+      message:
+        type: string
+    type: object
+  models.StandardClaims:
+    description: jwt StandardClaims
+    properties:
+      aud:
+        type: string
+      exp:
+        type: integer
+      iat:
+        type: integer
+      iss:
+        type: string
+      jti:
+        type: string
+      nbf:
+        type: integer
+      sub:
+        type: string
+    type: object
+  models.User:
+    description: User account
+    properties:
+      email:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+    type: object
+info:
+  contact:
+    email: feserr3@gmail.com
+    name: Elias Serrano
+  description: Pheme authentication service.
+  license:
+    name: BSD 2-Clause License
+    url: http://opensource.org/licenses/BSD-2-Clause
+  title: Pheme authentication
+  version: "1.0"
+paths:
+  /login:
+    post:
+      consumes:
+      - application/json
+      description: user login
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Message'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Message'
+        "404":
+          description: Not Found
+          schema:
+            $ref: '#/definitions/models.Message'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/models.Message'
+      summary: Login to a user
+      tags:
+      - authentication
+  /logout:
+    post:
+      consumes:
+      - application/json
+      description: logout and remove the user cookie
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Message'
+      summary: Logout the user
+      tags:
+      - authentication
+  /register:
+    post:
+      consumes:
+      - application/json
+      description: add a user
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.User'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/models.Message'
+      summary: Register a user
+      tags:
+      - authentication
+  /user:
+    get:
+      consumes:
+      - application/json
+      description: get the user cookie
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.StandardClaims'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/models.Message'
+      summary: Retrieve the user
+      tags:
+      - authentication
+swagger: "2.0"
