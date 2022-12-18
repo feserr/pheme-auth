@@ -4,17 +4,16 @@ go 1.19
 
 require (
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
-	github.com/feserr/pheme-user v0.0.0
+	github.com/feserr/pheme-user v0.0.0-20221216180858-7e6e27adab4e
 	github.com/go-playground/validator v9.31.0+incompatible
 	github.com/gofiber/fiber/v2 v2.38.1
 	github.com/swaggo/fiber-swagger v1.3.0
 	github.com/swaggo/swag v1.8.6
 	golang.org/x/crypto v0.0.0-20221005025214-4161e89ecf1b
+	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/driver/postgres v1.4.4
 	gorm.io/gorm v1.24.0
 )
-
-replace github.com/feserr/pheme-user => ../pheme-user
 
 require (
 	github.com/KyleBanks/depth v1.2.1 // indirect
@@ -48,5 +47,4 @@ require (
 	golang.org/x/text v0.3.7 // indirect
 	golang.org/x/tools v0.1.12 // indirect
 	gopkg.in/go-playground/assert.v1 v1.2.1 // indirect
-	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

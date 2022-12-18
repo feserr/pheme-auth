@@ -44,7 +44,7 @@ func main() {
 	database.Connect(dbConfig.Host, dbConfig.User, dbConfig.Dbname)
 
 	app := fiber.New(fiber.Config{
-		Prefork:       false,
+		Prefork:       true,
 		CaseSensitive: true,
 		StrictRouting: true,
 		ServerHeader:  "Fiber",
