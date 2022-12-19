@@ -37,12 +37,11 @@ jobs:
         run: go mod verify
 
       - name: Run tests
+        working-directory: ./test
         run: |
-          go run . &
-          cd test
           npm ci
           npm test
 
       - name: Stop containers
         if: always()
-        run: docker-compose -f "./ci/stack.yml" down
+        run: docker-compose --env-file .env -f "./ci/stack.yml" down
