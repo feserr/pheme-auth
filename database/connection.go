@@ -31,5 +31,8 @@ func Connect() {
 
 	DB = connection
 
-	connection.AutoMigrate(&models.User{})
+	err = connection.AutoMigrate(&models.User{})
+	if err != nil {
+		panic("Couldn't migrate")
+	}
 }
