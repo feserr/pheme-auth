@@ -1,8 +1,0 @@
-server:
-  ip: localhost
-  port: 8000
-
-db:
-  host: localhost
-  user: docker
-  dbname: pheme_db
