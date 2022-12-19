@@ -2,18 +2,14 @@ package main
 
 import (
 	"fmt"
-	"io/ioutil"
-	"log"
-	"path/filepath"
+	"os"
 
 	"github.com/feserr/pheme-auth/database"
 	_ "github.com/feserr/pheme-auth/docs"
-	"github.com/feserr/pheme-auth/models"
 	"github.com/feserr/pheme-auth/routes"
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	fiberSwagger "github.com/swaggo/fiber-swagger"
-	"gopkg.in/yaml.v3"
 )
 
 // @title Pheme auth
@@ -28,23 +24,10 @@ import (
 
 // @BasePath /api/
 func main() {
-	filename, _ := filepath.Abs("config/network.yml")
-	networkFile, err := ioutil.ReadFile(filename)
-	if err != nil {
-		log.Fatalf("error: %v", err)
-	}
-
-	networkConfig := models.Network{}
-	err = yaml.Unmarshal([]byte(networkFile), &networkConfig)
-	if err != nil {
-		log.Fatalf("error: %v", err)
-	}
-
-	dbConfig := networkConfig.Db
-	database.Connect(dbConfig.Host, dbConfig.User, dbConfig.Dbname)
+	database.Connect()
 
 	app := fiber.New(fiber.Config{
-		Prefork:       true,
+		Prefork:       false,
 		CaseSensitive: true,
 		StrictRouting: true,
 		ServerHeader:  "Fiber",
@@ -59,6 +42,5 @@ func main() {
 
 	routes.Setup(app)
 
-	serverConfig := networkConfig.Server
-	app.Listen(fmt.Sprintf("%v:%v", serverConfig.IP, serverConfig.Port))
+	app.Listen(fmt.Sprintf("%v:%v", os.Getenv("SERVER_HOST"), os.Getenv("SERVER_PORT")))
 }
