@@ -42,7 +42,7 @@ func main() {
 
 	routes.Setup(app)
 
-	err := app.Listen(fmt.Sprintf("%v:%v", os.Getenv("SERVER_HOST"), os.Getenv("SERVER_PORT")))
+	err := app.Listen(fmt.Sprintf("%v:%v", os.Getenv("PHEME_HOST"), os.Getenv("PHEME_AUTH_PORT")))
 	if err != nil {
 		panic(err.Error())
 	}

@@ -34,6 +34,8 @@ github.com/feserr/pheme-user v0.0.0-20221219122210-37599595ed00 h1:3ssSXT0B14Vod
 github.com/feserr/pheme-user v0.0.0-20221219122210-37599595ed00/go.mod h1:VZ1bESEWKPgPXDEgBAm1nk+hEcl3F0cDeT0H/DNtJ0o=
 github.com/feserr/pheme-user v0.0.0-20221219153104-82a31a28601f h1:73vQjEAXJTbwIk1oGiu2ssTzsWYNQ6Yjo+HAjbq4xL4=
 github.com/feserr/pheme-user v0.0.0-20221219153104-82a31a28601f/go.mod h1:0kk7exjoFvuLelA/op8hPi8ix28RtTra97tjVupS5dA=
+github.com/feserr/pheme-user v0.0.0-20221220221703-76409682a006 h1:vUXe9/oyVlk4CT+DsDzcJ2uPoDUmMPoDps5/ujgEU08=
+github.com/feserr/pheme-user v0.0.0-20221220221703-76409682a006/go.mod h1:0kk7exjoFvuLelA/op8hPi8ix28RtTra97tjVupS5dA=
 github.com/ghodss/yaml v1.0.0/go.mod h1:4dBDuWmgqj2HViK6kFavaiC9ZROes6MMH2rRYeMEF04=
 github.com/go-kit/log v0.1.0/go.mod h1:zbhenjAZHb184qTLMA9ZjW7ThYL0H2mk7Q6pNt4vbaY=
 github.com/go-logfmt/logfmt v0.5.0/go.mod h1:wCYkCAKZfumFQihp8CzCvQ3paCTfi41vtzG1KdI/P7A=

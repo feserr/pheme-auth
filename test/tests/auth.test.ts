@@ -45,7 +45,7 @@ describe('Register endpoint', () => {
     expect(response.headers['content-type']).toContain('application/json');
     expect(response.body).toHaveProperty('id');
     expect(response.body).toHaveProperty('version');
-    expect(response.body).toHaveProperty('userName');
+    expect(response.body).toHaveProperty('username');
     expect(response.body).toHaveProperty('email');
     expect(response.body).toHaveProperty('createdAt');
   });
